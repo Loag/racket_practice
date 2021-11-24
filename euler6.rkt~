@@ -1,9 +1,0 @@
-#lang racket
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Project Euler 6
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define (square a) (expt a 2))
-(define (sum-of-squares n) (apply + (map square (inclusive-range 1 n))))
-(define (square-of-sum n) (square (apply + (inclusive-range 1 n))))
-(define (difference n) (abs(- (sum-of-squares n) (square-of-sum n))))
-(difference 5)
