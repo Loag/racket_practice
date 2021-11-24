@@ -1,25 +1,18 @@
 #lang racket
-
-; Identity
-(define (I a) a)
-; Constant
-(define (K a b) a)
-; Combination
-(define (S a b c) (a c (b c)))
-
-(define (addr a b) (+ a b))
-(define (add_2 a) (+ a 2))
-
-(S addr add_2 1)
-
-(define (all_addr a) (apply + a))
-(all_addr '(1 2 3 4 5))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Project Euler 6
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; define simple square func
 (define (square a) (expt a 2))
+
+; apply square to all numbers in range then sum range
 (define (sum-of-squares n) (apply + (map square (inclusive-range 1 n))))
+
+; sum range then square
 (define (square-of-sum n) (square (apply + (inclusive-range 1 n))))
-(define (difference n) (abs(- (sum-of-squares n) (square-of-sum n))))
+
+; define the difference between square of sum and sum of squares
+(define (difference n) (- (square-of-sum n) (sum-of-squares n)))
+
 (difference 5)
